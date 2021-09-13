@@ -15,22 +15,22 @@ const showProducts = (products) => {
     div.innerHTML = `
             <div class="card h-100">
               <img src=${image} class="card-img-top w-50 h-50 mx-auto" alt="...">
-              <div class="card-body">
+              <div class="card-body text-center">
                 <h5 class="card-title">${product.title.slice(0, 50)}</h5>
                 <p class="card-text">Category: ${product.category}</p>
                 <p class="card-text">Rating: ${product.rating.rate}</p>
                 <p class="card-text">Rating Count: ${product.rating.count}</p>
                 <h2>Price: $ ${product.price}</h2>
-                <div class="w-75 mx-auto">
-                  <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="btn btn-success">add to cart</button>
-                  <button id="details-btn" class="btn btn-danger">Details</button>
-                </div>
+                <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="btn btn-success">add to cart</button>
+                <button id="details-btn" class="btn btn-danger">Details</button>
               </div>
             </div>
     `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// Add to cart your product 
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -41,6 +41,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+// Get element value by id 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
